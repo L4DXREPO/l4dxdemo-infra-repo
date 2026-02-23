@@ -5,7 +5,7 @@ variable "region" {
   type        = string
 }
 variable "availability_zone" {
-  description = "availability zone"
+  description = "availability zone for subnets"
   type        = string
   default     = "ap-south-1a"
 }
