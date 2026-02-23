@@ -4,4 +4,8 @@ resource "random_id" "bucket_suffix" {
 
 resource "aws_s3_bucket" "main" {
   bucket = "l4dxdemo-test-bucket-${random_id.bucket_suffix.hex}"
+
+  tags = {
+    Name = "l4dxdemo-test-bucket"
+  }
 }
