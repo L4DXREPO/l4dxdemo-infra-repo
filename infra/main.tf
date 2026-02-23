@@ -1,3 +1,4 @@
+# Terraform configuration for L4DXDemo infrastructure
 resource "random_id" "bucket_suffix" {
   byte_length = 8
 }
