@@ -7,6 +7,7 @@ variable "region" {
 variable "availability_zone" {
   description = "availability zone"
   type        = string
+  default     = "ap-south-1a"
 }
 
 #PRODUCTION VPC
