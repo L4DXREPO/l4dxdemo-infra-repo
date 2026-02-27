@@ -31,4 +31,3 @@ variable "production_subnet3_cidr" {
   default     = "10.0.3.0/24"
 }
 
-
