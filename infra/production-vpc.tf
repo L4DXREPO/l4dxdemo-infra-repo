@@ -17,7 +17,7 @@ resource "aws_vpc" "production_vpc" {
 resource "aws_subnet" "public_subnet_1" {
   vpc_id            = aws_vpc.production_vpc.id
   cidr_block        = var.production_subnet1_cidr
-  
+
 
   tags = {
     Name = "production-public-subnet-1"
@@ -41,7 +41,7 @@ resource "aws_subnet" "private_subnet_1" {
 resource "aws_subnet" "private_subnet_2" {
   vpc_id            = aws_vpc.production_vpc.id
   cidr_block        = var.production_subnet3_cidr
- 
+
 
   tags = {
     Name = "production-private-subnet-3"
@@ -126,10 +126,11 @@ resource "aws_route_table_association" "private_assoc_2" {
 }
 
 
-# Security Group
+# EC2 Security Group
 resource "aws_security_group" "ec2_sg" {
   name        = "ec2-security-group"
   description = "Allow SSH and HTTP"
+  vpc_id      = aws_vpc.production_vpc.id
 
   ingress {
     description = "SSH"
