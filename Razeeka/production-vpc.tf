@@ -127,7 +127,7 @@ resource "aws_route_table_association" "private_assoc_2" {
 
 
 # EC2 Security Group
-resource "aws_security_group" "ec2_sg" {
+/* resource "aws_security_group" "ec2_sg" {
   name        = "ec2-security-group"
   description = "Allow SSH and HTTP"
   vpc_id      = aws_vpc.production_vpc.id
@@ -193,4 +193,4 @@ resource "aws_instance" "private_ec2" {
   tags = {
     Name = "production-private-ec2"
   }
-}
+} */

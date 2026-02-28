@@ -8,3 +8,4 @@ terraform {
   }
   backend "s3" {}
 }
+
