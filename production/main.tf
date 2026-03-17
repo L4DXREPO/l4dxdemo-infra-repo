@@ -6,7 +6,8 @@ locals {
 }
 
 resource "tls_private_key" "demo" {
-  algorithm = "ED25519"
+  algorithm = "RSA"
+  rsa_bits  = 4096
 }
 
 resource "aws_key_pair" "demo" {
