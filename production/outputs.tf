@@ -8,11 +8,6 @@ output "onprem_vpc_id" {
   value       = aws_vpc.onprem.id
 }
 
-output "production_vpc_id" {
-  description = "ID of the production VPC"
-  value       = aws_vpc.production.id
-}
-
 output "onprem_dc_public_ip" {
   description = "Public IP of the on-prem domain controller"
   value       = aws_instance.onprem_dc.public_ip
@@ -23,12 +18,19 @@ output "onprem_standalone_public_ip" {
   value       = aws_instance.onprem_standalone.public_ip
 }
 
-output "prod_dc_public_ip" {
-  description = "Public IP of the production domain controller"
-  value       = aws_instance.prod_dc.public_ip
-}
-
-output "prod_standalone_public_ip" {
-  description = "Public IP of the production standalone server"
-  value       = aws_instance.prod_standalone.public_ip
-}
+# Production outputs — uncomment when production VPC is re-enabled
+#
+# output "production_vpc_id" {
+#   description = "ID of the production VPC"
+#   value       = aws_vpc.production.id
+# }
+#
+# output "prod_dc_public_ip" {
+#   description = "Public IP of the production domain controller"
+#   value       = aws_instance.prod_dc.public_ip
+# }
+#
+# output "prod_standalone_public_ip" {
+#   description = "Public IP of the production standalone server"
+#   value       = aws_instance.prod_standalone.public_ip
+# }
