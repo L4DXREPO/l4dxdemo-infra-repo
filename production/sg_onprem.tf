@@ -1,7 +1,15 @@
 resource "aws_security_group" "onprem" {
   name        = "onprem-sg"
-  description = "On-prem simulation SG - egress only for MGN agent traffic"
+  description = "On-prem simulation SG - RDP inbound, egress for MGN agent traffic"
   vpc_id      = aws_vpc.onprem.id
+
+  ingress {
+    description = "RDP"
+    protocol    = "tcp"
+    from_port   = 3389
+    to_port     = 3389
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 
   egress {
     description = "HTTPS to AWS"
