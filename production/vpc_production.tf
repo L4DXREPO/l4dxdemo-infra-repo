@@ -1,5 +1,3 @@
-Production VPC — commented out until DC and standalone app are configured on on-prem side
-
 resource "aws_vpc" "production" {
   cidr_block = "192.168.0.0/16"
 
