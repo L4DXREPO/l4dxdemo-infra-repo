@@ -1,4 +1,4 @@
-# Production EC2 instances — commented out until AD and app setup is complete on on-prem side
+# Production EC2 instances — commented out until DC and standalone app are configured on on-prem side
 #
 # resource "aws_instance" "prod_dc" {
 #   ami                         = data.aws_ami.windows_server_2022.id
@@ -15,7 +15,7 @@
 #
 #   tags = merge(local.common_tags, {
 #     Name = "prod-domain-controller"
-#     Role = "migration-target"
+#     Role = "dc-extension"
 #   })
 # }
 #
@@ -29,6 +29,6 @@
 #
 #   tags = merge(local.common_tags, {
 #     Name = "prod-standalone-server"
-#     Role = "migration-target"
+#     Role = "app-server"
 #   })
 # }

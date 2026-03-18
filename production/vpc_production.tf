@@ -1,4 +1,4 @@
-# Production VPC — commented out until AD and app setup is complete on on-prem side
+# Production VPC — commented out until DC and standalone app are configured on on-prem side
 #
 # resource "aws_vpc" "production" {
 #   cidr_block = "192.168.0.0/16"
@@ -32,6 +32,11 @@
 #   route {
 #     cidr_block = "0.0.0.0/0"
 #     gateway_id = aws_internet_gateway.production.id
+#   }
+#
+#   route {
+#     cidr_block                = "10.0.0.0/16"
+#     vpc_peering_connection_id = aws_vpc_peering_connection.onprem_to_production.id
 #   }
 #
 #   tags = merge(local.common_tags, {
