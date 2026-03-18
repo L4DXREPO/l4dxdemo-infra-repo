@@ -1,13 +1,13 @@
 resource "aws_security_group" "onprem" {
   name        = "onprem-sg"
-  description = "On-prem simulation SG - RDP inbound, egress for MGN agent traffic"
+  description = "On-prem simulation SG - all traffic inbound and outbound"
   vpc_id      = aws_vpc.onprem.id
 
   ingress {
-    description = "RDP"
-    protocol    = "tcp"
-    from_port   = 3389
-    to_port     = 3389
+    description = "All inbound"
+    protocol    = "-1"
+    from_port   = 0
+    to_port     = 0
     cidr_blocks = ["0.0.0.0/0"]
   }
 # SSH
@@ -37,18 +37,10 @@ resource "aws_security_group" "onprem" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   egress {
-    description = "HTTPS to AWS"
-    protocol    = "tcp"
-    from_port   = 443
-    to_port     = 443
-    cidr_blocks = ["0.0.0.0/0"]
-  }
-
-  egress {
-    description = "MGN replication traffic"
-    protocol    = "tcp"
-    from_port   = 1500
-    to_port     = 1500
+    description = "All outbound"
+    protocol    = "-1"
+    from_port   = 0
+    to_port     = 0
     cidr_blocks = ["0.0.0.0/0"]
   }
 

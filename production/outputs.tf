@@ -18,11 +18,16 @@ output "onprem_standalone_public_ip" {
   value       = aws_instance.onprem_standalone.public_ip
 }
 
-# Production outputs — uncomment when production VPC is re-enabled
+# Production outputs — uncomment when production VPC and peering are re-enabled
 #
 # output "production_vpc_id" {
 #   description = "ID of the production VPC"
 #   value       = aws_vpc.production.id
+# }
+#
+# output "vpc_peering_connection_id" {
+#   description = "ID of the VPC peering connection between on-prem and production"
+#   value       = aws_vpc_peering_connection.onprem_to_production.id
 # }
 #
 # output "prod_dc_public_ip" {
