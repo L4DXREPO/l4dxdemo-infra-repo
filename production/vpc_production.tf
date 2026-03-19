@@ -32,11 +32,6 @@ resource "aws_route_table" "production_public" {
     gateway_id = aws_internet_gateway.production.id
   }
 
-  route {
-    cidr_block                = "10.0.0.0/16"
-    vpc_peering_connection_id = aws_vpc_peering_connection.onprem_to_production.id
-  }
-
   tags = merge(local.common_tags, {
     Name = "production-public-rt"
   })
