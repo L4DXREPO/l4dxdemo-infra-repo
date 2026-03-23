@@ -1,5 +1,5 @@
 resource "aws_instance" "prod_dc" {
-  ami                         = data.aws_ami.windows_server_2022.id
+  ami                         = "ami-038b0fc52513087d0"
   instance_type               = "t3.large"
   subnet_id                   = aws_subnet.production_public.id
   vpc_security_group_ids      = [aws_security_group.production.id]
@@ -18,7 +18,7 @@ resource "aws_instance" "prod_dc" {
 }
 
 resource "aws_instance" "prod_standalone" {
-  ami                         = data.aws_ami.ubuntu_22_04.id
+  ami                         = "ami-095cc90aa5ddff518"
   instance_type               = "t3.medium"
   subnet_id                   = aws_subnet.production_public.id
   vpc_security_group_ids      = [aws_security_group.production.id]
