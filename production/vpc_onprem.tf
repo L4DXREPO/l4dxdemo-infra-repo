@@ -7,9 +7,10 @@ resource "aws_vpc" "onprem" {
 }
 
 resource "aws_subnet" "onprem_public" {
-  vpc_id            = aws_vpc.onprem.id
-  cidr_block        = "10.0.0.0/24"
-  availability_zone = "ap-south-1a"
+  vpc_id                  = aws_vpc.onprem.id
+  cidr_block              = "10.0.0.0/24"
+  availability_zone       = "ap-south-1a"
+  map_public_ip_on_launch = true
 
   tags = merge(local.common_tags, {
     Name = "onprem-public-subnet"

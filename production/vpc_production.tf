@@ -7,9 +7,10 @@ resource "aws_vpc" "production" {
 }
 
 resource "aws_subnet" "production_public" {
-  vpc_id            = aws_vpc.production.id
-  cidr_block        = "192.168.2.0/24"
-  availability_zone = "ap-south-1a"
+  vpc_id                  = aws_vpc.production.id
+  cidr_block              = "192.168.2.0/24"
+  availability_zone       = "ap-south-1a"
+  map_public_ip_on_launch = true
 
   tags = merge(local.common_tags, {
     Name = "production-public-subnet"
