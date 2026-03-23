@@ -10,6 +10,10 @@ resource "aws_instance" "prod_dc" {
     volume_type = "gp3"
   }
 
+  lifecycle {
+    prevent_destroy = true
+  }
+
   tags = merge(local.common_tags, {
     Name = "prod-domain-controller"
     Role = "dc-extension"

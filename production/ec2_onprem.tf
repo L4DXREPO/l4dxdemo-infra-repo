@@ -6,6 +6,10 @@ resource "aws_instance" "onprem_standalone" {
   key_name             = aws_key_pair.demo.key_name
   iam_instance_profile = aws_iam_instance_profile.mgn_agent.name
 
+  lifecycle {
+    prevent_destroy = true
+  }
+
   tags = merge(local.common_tags, {
     Name = "onprem-standalone-server"
   })
