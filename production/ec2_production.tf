@@ -11,6 +11,11 @@ resource "aws_instance" "prod_dc" {
     volume_type = "gp3"
   }
 
+  lifecycle {
+    prevent_destroy = true
+    ignore_changes  = [associate_public_ip_address]
+  }
+
   tags = merge(local.common_tags, {
     Name = "prod-domain-controller"
     Role = "dc-extension"
@@ -24,6 +29,11 @@ resource "aws_instance" "prod_standalone" {
   vpc_security_group_ids      = [aws_security_group.production.id]
   associate_public_ip_address = true
   key_name                    = aws_key_pair.demo.key_name
+
+  lifecycle {
+    prevent_destroy = true
+    ignore_changes  = [associate_public_ip_address]
+  }
 
   tags = merge(local.common_tags, {
     Name = "prod-standalone-server"
