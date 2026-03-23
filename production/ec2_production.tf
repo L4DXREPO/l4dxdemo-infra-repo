@@ -3,8 +3,7 @@ resource "aws_instance" "prod_dc" {
   instance_type               = "t3.large"
   subnet_id                   = aws_subnet.production_public.id
   vpc_security_group_ids      = [aws_security_group.production.id]
-  associate_public_ip_address = true
-  key_name                    = aws_key_pair.demo.key_name
+  key_name = aws_key_pair.demo.key_name
 
   root_block_device {
     volume_size = 50
@@ -13,7 +12,6 @@ resource "aws_instance" "prod_dc" {
 
   lifecycle {
     prevent_destroy = true
-    ignore_changes  = [associate_public_ip_address]
   }
 
   tags = merge(local.common_tags, {
@@ -27,12 +25,10 @@ resource "aws_instance" "prod_standalone" {
   instance_type               = "t3.medium"
   subnet_id                   = aws_subnet.production_public.id
   vpc_security_group_ids      = [aws_security_group.production.id]
-  associate_public_ip_address = true
-  key_name                    = aws_key_pair.demo.key_name
+  key_name = aws_key_pair.demo.key_name
 
   lifecycle {
     prevent_destroy = true
-    ignore_changes  = [associate_public_ip_address]
   }
 
   tags = merge(local.common_tags, {
