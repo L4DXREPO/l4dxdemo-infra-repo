@@ -19,7 +19,7 @@ resource "aws_instance" "prod_dc" {
 
 resource "aws_instance" "prod_standalone" {
   ami                         = data.aws_ami.ubuntu_22_04.id
-  instance_type               = "t2.micro"
+  instance_type               = "t3.medium"
   subnet_id                   = aws_subnet.production_public.id
   vpc_security_group_ids      = [aws_security_group.production.id]
   associate_public_ip_address = true
