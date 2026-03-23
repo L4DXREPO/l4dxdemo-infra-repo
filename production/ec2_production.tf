@@ -1,5 +1,5 @@
 resource "aws_instance" "prod_dc" {
-  ami                         = "ami-038b0fc52513087d0"
+  ami                         = "ami-0ccffca673454bcc3"
   instance_type               = "t3.large"
   subnet_id                   = aws_subnet.production_public.id
   vpc_security_group_ids      = [aws_security_group.production.id]
@@ -8,10 +8,6 @@ resource "aws_instance" "prod_dc" {
   root_block_device {
     volume_size = 50
     volume_type = "gp3"
-  }
-
-  lifecycle {
-    prevent_destroy = true
   }
 
   tags = merge(local.common_tags, {
