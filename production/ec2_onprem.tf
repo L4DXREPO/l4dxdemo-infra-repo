@@ -8,6 +8,7 @@ resource "aws_instance" "onprem_standalone" {
 
   lifecycle {
     prevent_destroy = true
+    ignore_changes  = [ami]
   }
 
   tags = merge(local.common_tags, {
